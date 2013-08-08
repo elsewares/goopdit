@@ -1,0 +1,98 @@
+<!DOCTYPE html>   
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<!--[if IE]><![endif]-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="keywords" content="" />
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	<!-- !CSS -->
+	<link rel="stylesheet" href="/style.css?v=1">
+	<!-- Uncomment if you are specifically targeting less enabled mobile browsers
+	<link rel="stylesheet" media="handheld" href="css/handheld.css?v=1">  -->
+	
+	<!-- !Modernizr - All other JS at bottom -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+	<style>
+		.Hot_Dog_Animation{ background:url("hot_dog.png") top left no-repeat; }
+		.Hot_Dogz1{ width:480px; height:640px; background-position:-10px -10px; }
+		.Hot_Dogz2{ width:480px; height:640px; background-position:-10px -660px; }
+		.Hot_Dogz3{ width:480px; height:640px; background-position:-10px -1310px; }
+		.Hot_Dogz4{ width:480px; height:640px; background-position:-10px -1960px; }
+		.Hot_Dogz5{ width:480px; height:640px; background-position:-10px -2610px; }
+		.Hot_Dogz6{ width:480px; height:640px; background-position:-10px -3260px; }
+	</style>
+</head>
+<!-- !Body -->
+<body>
+	<div id="container">
+		<section id="main">
+		  <img src="/goopd.png" id="goopd" style="z-index: 15; height: 150px;"/>
+		</section><!-- /main -->
+		
+		<footer>
+		
+		</footer><!-- /footer -->
+	</div><!--!/#container -->
+	<!-- !Javascript - at the bottom for fast page loading -->
+	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script>!window.jQuery && document.write('<script src="js/jquery-2.0.2.min.js"><\/script>')</script>
+	<script type="text/javascript">
+		var i = 1;
+		function runnerness () {
+			$('.corndog').each(function (){
+				var lt = $(this).css("left");
+				lt = parseInt(lt.substr(0, lt.indexOf("p")));
+				//if(lt > 1000){ lt = 0; }
+				$(this).css("left", (lt + 10) + "px");
+				var sz = parseInt($(this).data('size')) / 100;
+				var w = $(this).width() * sz;
+				var h = $(this).height() * sz;
+				if(!$(this).hasClass('set')){
+					$(this).width(w);
+					$(this).height(h);
+					$(this).css("background-size", "100%").addClass('set');
+				}
+			});
+		}
+		function leggers () {
+			var rcls = "Hot_Dogz" + i; var cls = "Hot_Dogz" + (i + 1);
+			$(".corndog").each(function (){
+				var _t = $(this);
+				_t.removeClass(rcls).addClass(cls);
+				// var bgy = _t.css("background-position-y"); bgy = parseInt(bgy.substr(0, bgy.indexOf('p')));
+				// bgy = bgy * (parseInt($(this).data('size')) / 100)
+				// _t.css("background-position-y", bgy);
+			});
+			i++;
+			if(i > 6){
+				i = 1;
+			}
+			
+		}
+		function makeDog () {
+			var tpl = '<div id="" class="corndog Hot_Dog_Animation Hot_Dogz1" style="position: absolute; left: -400; width: 480px; height: 640px; "/>';
+			var _dog = $(tpl);
+			var top = Math.floor(Math.random() * 31);
+			var sz = Math.floor(Math.random() * 25) + 50;
+			_dog.css('top', top + "%").css('z-index', top);
+			_dog.css('background-size', sz + "%");
+			_dog.data('size', sz);
+			$('body').append(_dog);
+		}
+		$(document).ready(function() {
+			window.setInterval(runnerness, 55);
+			window.setInterval(leggers, 55);
+			window.setInterval(makeDog, 3000);
+		});
+	</script>
+</body>
+</html>
