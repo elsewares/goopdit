@@ -87,7 +87,8 @@
 				var top = Math.floor(Math.random() * 31);
 				var sz = Math.floor(Math.random() * 25) + 50;
 				_dog.css('top', top + "%").css('z-index', top);
-				_dog.css('background-size', sz + "%");
+				//_dog.css('background-size', sz + "%");
+				_dog.css('background-size', "100%");
 				_dog.css('height', scootch(_dog.css('height'), sz));
 				_dog.css('width', scootch(_dog.css('width'), sz));
 				_dog.data('size', sz);
