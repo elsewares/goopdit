@@ -82,6 +82,8 @@
 				if(_dog.data("frame") !== 0){
 					bgy = Math.ceil((bgy * size) - Math.floor(size * blug));
 				}
+				console.log('Frame ' + _dog.data('frame'), 'y-pos ' + bgy);
+
 				_dog.css("background-position-y", bgy + "px");
 		}
 		function makeDog () {
