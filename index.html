@@ -47,6 +47,7 @@
 	<script>!window.jQuery && document.write('<script src="js/jquery-2.0.2.min.js"><\/script>')</script>
 	<script type="text/javascript">
 		var i = 1;
+		var doggies = 0;
 		function runnerness () {
 			$('.corndog').each(function (){
 				var lt = $(this).css("left");
@@ -79,24 +80,29 @@
 			
 		}
 		function makeDog () {
-			var tpl = '<div id="" class="corndog Hot_Dog_Animation Hot_Dogz1" style="position: absolute; left: -400; width: 480px; height: 640px; "/>';
-			var _dog = $(tpl);
-			var top = Math.floor(Math.random() * 31);
-			var sz = Math.floor(Math.random() * 25) + 50;
-			_dog.css('top', top + "%").css('z-index', top);
-			_dog.css('background-size', sz + "%");
-			_dog.css('background-position-y', scootch(_dog.css('background-position-y'), sz));
-			_dog.data('size', sz);
-			$('body').append(_dog);
+			if(doggies < 1){
+				var tpl = '<div id="" class="corndog Hot_Dog_Animation Hot_Dogz1" style="position: absolute; left: -400; width: 480px; height: 640px; "/>';
+				var _dog = $(tpl);
+				var top = Math.floor(Math.random() * 31);
+				var sz = Math.floor(Math.random() * 25) + 50;
+				_dog.css('top', top + "%").css('z-index', top);
+				_dog.css('background-size', sz + "%");
+				_dog.css('background-position-y', scootch(_dog.css('background-position-y'), sz));
+				_dog.css('height', scootch(_dog.css('height'), sz));
+				_dog.css('width', scootch(_dog.css('width'), sz));
+				_dog.data('size', sz);
+				$('body').append(_dog);
+				doggies++;
+			}
 		}
 
 		function scootch (y, sz) {
 			var size = sz / 100;
 			var newy = parseInt(y.substr(0, y.indexOf("p"));
-			newy = newy * sz;
+			newy = Math.floor(newy * sz);
 			return newy + "px";
 		}
-		
+
 		$(document).ready(function() {
 			window.setInterval(runnerness, 55);
 			window.setInterval(leggers, 55);
