@@ -78,6 +78,7 @@
 				var bgy = yyyyyy[_dog.data('frame')];
 				bgy = Math.floor(bgy * (parseInt(_dog.data('size')) / 100));
 				_dog.css("background-position-y", bgy);
+				console.log ("Frame: " + _dog.data("frame") + " .. bgy: " + bgy);
 		}
 		function makeDog () {
 			if(doggies < 1){
@@ -104,8 +105,8 @@
 
 		$(document).ready(function() {
 			//window.setInterval(runnerness, 55);
-			window.setInterval(leggers, 100);
-			window.setInterval(makeDog, 3000);
+			//window.setInterval(leggers, 100);
+			window.setInterval(makeDog, 1000);
 		});
 	</script>
 </body>
