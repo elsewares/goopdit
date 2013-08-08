@@ -3,10 +3,9 @@ body {
 }
 
 img#goopd{
-	width:270px;
-	height:150px;
+	width:300px;
 	position:absolute;
 	left:50%;
 	top:50%;
-	margin:-75px 0 0 -135px;
+	margin:-75px 0 0 -150px;
 }
