@@ -14,7 +14,7 @@
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width; initial-scale=1.0">
 	<!-- !CSS -->
-	<link rel="stylesheet" href="/style.css?v=1">
+	<link rel="stylesheet" href="style.css?v=1">
 	<!-- Uncomment if you are specifically targeting less enabled mobile browsers
 	<link rel="stylesheet" media="handheld" href="css/handheld.css?v=1">  -->
 	
@@ -34,7 +34,7 @@
 <body>
 	<div id="container">
 		<section id="main">
-		  <img src="/goopd.png" id="goopd" style="z-index: 15; width: 300px;"/>
+		  <img src="goopd.png" id="goopd" style="z-index: 15; width: 300px;"/>
 		  <input type="text" id="leggers" style="float: right;" width="30" value="20"/>
 		</section><!-- /main -->
 		
@@ -78,13 +78,11 @@
 		}
 		function sizers (_dog) {
 				var bgy = yyyyyy[_dog.data('frame')];
-				var size = parseInt(_dog.data('size'));
+				var size = (parseInt(_dog.data('size')) / 100);
 				if(_dog.data("frame") !== 0){
-					bgy = Math.ceil((bgy * (size / 100)) - Math.floor(size * blug));
+					bgy = Math.ceil((bgy * size) - Math.floor(size * blug));
 				}
-				//newy = Math.ceil(newy * size - Math.floor(size * blug));
 				_dog.css("background-position-y", bgy + "px");
-				//console.log ("Frame: " + _dog.data("frame") + " .. bgy: " + bgy);
 		}
 		function makeDog () {
 			if(doggies < 1){
