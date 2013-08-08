@@ -35,7 +35,6 @@
 	<div id="container">
 		<section id="main">
 		  <img src="goopd.png" id="goopd" style="z-index: 15; width: 300px;"/>
-		  <input type="text" id="leggers" style="float: right;" width="30" value="20"/>
 		</section><!-- /main -->
 		
 		<footer>
@@ -80,17 +79,17 @@
 				var bgy = yyyyyy[_dog.data('frame')];
 				var size = (parseInt(_dog.data('size')) / 100);
 				if(_dog.data("frame") !== 0){
-					bgy = Math.ceil((bgy * size) + (10 * _dog.data('frame')));
+					bgy = Math.floor((bgy * size) + ((32 * _dog.data('frame') * size)));
 				}
 				console.log('Frame ' + _dog.data('frame'), 'y-pos ' + bgy);
 
 				_dog.css("background-position-y", bgy + "px");
 		}
 		function makeDog () {
-			if(doggies < 1){
+			if(doggies < 15){
 				var tpl = '<div id="" class="corndog Hot_Dog_Animation Hot_Dogz1" style="position: absolute; left: 0px; width: 480px; height: 640px; "/>';
 				var _dog = $(tpl);
-				var top = Math.floor(Math.random() * 31);
+				var top = Math.floor(Math.random() * 200);
 				var sz = Math.floor(Math.random() * 25) + 20;
 				_dog.css('top', top + "%").css('z-index', top);
 				//_dog.css('background-size', sz + "%");
@@ -105,20 +104,16 @@
 
 		function scootch (y, sz) {
 			var size = sz / 100;
-			var debug = parseInt($("input#leggers").text());
+			//var debug = parseInt($("input#leggers").text());
 			var newy = parseInt(y.substr(0, y.indexOf("p")));
-			newy = Math.ceil(newy * size - Math.floor(size * blug));
+			newy = Math.ceil(newy * size);
 			return newy + "px";
 		}
 
 		$(document).ready(function() {
-			//window.setInterval(runnerness, 55);
+			window.setInterval(runnerness, 100);
 			window.setInterval(leggers, 100);
-			window.setInterval(makeDog, 1000);
-			$("input#leggers").on("keypress", function () {
-				blug = $(this).val();
-				console.log(blug);
-			})
+			window.setInterval(makeDog, 2000);
 		});
 	</script>
 </body>
