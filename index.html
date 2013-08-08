@@ -64,7 +64,7 @@
 				_t.attr('class', function(i, c){
               		return c.replace(/\bHot_Dogz\S+/g, '');
            		}).addClass(cls);
-				_t.data('frame', i);
+				_t.data('frame', (i - 1));
 				sizers(_t);
 			});
 
