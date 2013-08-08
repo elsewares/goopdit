@@ -85,9 +85,18 @@
 			var sz = Math.floor(Math.random() * 25) + 50;
 			_dog.css('top', top + "%").css('z-index', top);
 			_dog.css('background-size', sz + "%");
+			_dog.css('background-position-y', scootch(_dog.css('background-position-y'), sz));
 			_dog.data('size', sz);
 			$('body').append(_dog);
 		}
+
+		function scootch (y, sz) {
+			var size = sz / 100;
+			var newy = parseInt(y.substr(0, y.indexOf("p"));
+			newy = newy * sz;
+			return newy + "px";
+		}
+		
 		$(document).ready(function() {
 			window.setInterval(runnerness, 55);
 			window.setInterval(leggers, 55);
