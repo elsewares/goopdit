@@ -49,6 +49,7 @@
 	<script type="text/javascript">
 		var i = 1;
 		var doggies = 0;
+		var blug = 10;
 		var yyyyyy = [-10, -660, -1310, -1960, -2610, -3260];
 		function runnerness () {
 			$('.corndog').each(function (){
@@ -79,7 +80,7 @@
 				var bgy = yyyyyy[_dog.data('frame')];
 				bgy = Math.floor(bgy * (parseInt(_dog.data('size')) / 100));
 				_dog.css("background-position-y", bgy);
-				console.log ("Frame: " + _dog.data("frame") + " .. bgy: " + bgy);
+				//console.log ("Frame: " + _dog.data("frame") + " .. bgy: " + bgy);
 		}
 		function makeDog () {
 			if(doggies < 1){
@@ -100,9 +101,9 @@
 
 		function scootch (y, sz) {
 			var size = sz / 100;
-			var debug = parseInt($("input#leggers").val());
+			var debug = parseInt($("input#leggers").text());
 			var newy = parseInt(y.substr(0, y.indexOf("p")));
-			newy = Math.ceil(newy * size - Math.floor(size * debug));
+			newy = Math.ceil(newy * size - Math.floor(size * blug));
 			return newy + "px";
 		}
 
@@ -110,6 +111,10 @@
 			//window.setInterval(runnerness, 55);
 			window.setInterval(leggers, 100);
 			window.setInterval(makeDog, 1000);
+			$("input#leggers").on("keypress", function () {
+				blug = $(this).val();
+				console.log(blug);
+			})
 		});
 	</script>
 </body>
