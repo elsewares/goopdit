@@ -35,6 +35,7 @@
 	<div id="container">
 		<section id="main">
 		  <img src="/goopd.png" id="goopd" style="z-index: 15; width: 300px;"/>
+		  <input type="text" id="leggers" style="float: right;" width="30" value="10"/>
 		</section><!-- /main -->
 		
 		<footer>
@@ -99,8 +100,9 @@
 
 		function scootch (y, sz) {
 			var size = sz / 100;
+			var debug = parseInt($("input#leggers").val());
 			var newy = parseInt(y.substr(0, y.indexOf("p")));
-			newy = Math.ceil(newy * size - Math.floor(size * 10));
+			newy = Math.ceil(newy * size - Math.floor(size * debug));
 			return newy + "px";
 		}
 
