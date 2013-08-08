@@ -48,6 +48,7 @@
 	<script type="text/javascript">
 		var i = 1;
 		var doggies = 0;
+		var yyyyyy = [-10, -660, -1310, -1960, -2610, -3260];
 		function runnerness () {
 			$('.corndog').each(function (){
 				var lt = $(this).css("left");
@@ -61,6 +62,7 @@
 			$(".corndog").each(function (){
 				var _t = $(this);
 				_t.removeClass(rcls).addClass(cls);
+				_t.data('frame', cls);
 				sizers(_t);
 			});
 
@@ -71,7 +73,7 @@
 			
 		}
 		function sizers (_dog) {
-				var bgy = _dog.css("background-position-y"); bgy = parseInt(bgy.substr(0, bgy.indexOf('p')));
+				var bgy = yyyyyy[_dog.data('frame')];
 				bgy = Math.floor(bgy * (parseInt(_dog.data('size')) / 100));
 				_dog.css("background-position-y", bgy);
 		}
