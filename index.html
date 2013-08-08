@@ -72,7 +72,7 @@
 		}
 		function sizers (_dog) {
 				var bgy = _dog.css("background-position-y"); bgy = parseInt(bgy.substr(0, bgy.indexOf('p')));
-				bgy = Math.floor(bgy * (parseInt($(this).data('size')) / 100));
+				bgy = Math.floor(bgy * (parseInt(_dog.data('size')) / 100));
 				_dog.css("background-position-y", bgy);
 		}
 		function makeDog () {
