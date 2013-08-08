@@ -54,14 +54,6 @@
 				lt = parseInt(lt.substr(0, lt.indexOf("p")));
 				//if(lt > 1000){ lt = 0; }
 				$(this).css("left", (lt + 10) + "px");
-				var sz = parseInt($(this).data('size')) / 100;
-				var w = $(this).width() * sz;
-				var h = $(this).height() * sz;
-				if(!$(this).hasClass('set')){
-					$(this).width(w);
-					$(this).height(h);
-					$(this).css("background-size", "100%").addClass('set');
-				}
 			});
 		}
 		function leggers () {
@@ -69,15 +61,19 @@
 			$(".corndog").each(function (){
 				var _t = $(this);
 				_t.removeClass(rcls).addClass(cls);
-				// var bgy = _t.css("background-position-y"); bgy = parseInt(bgy.substr(0, bgy.indexOf('p')));
-				// bgy = bgy * (parseInt($(this).data('size')) / 100)
-				// _t.css("background-position-y", bgy);
+				sizers(_t);
 			});
+
 			i++;
 			if(i > 6){
 				i = 1;
 			}
 			
+		}
+		function sizers (_dog) {
+				var bgy = _dog.css("background-position-y"); bgy = parseInt(bgy.substr(0, bgy.indexOf('p')));
+				bgy = Math.floor(bgy * (parseInt($(this).data('size')) / 100));
+				_dog.css("background-position-y", bgy);
 		}
 		function makeDog () {
 			if(doggies < 1){
@@ -87,7 +83,6 @@
 				var sz = Math.floor(Math.random() * 25) + 50;
 				_dog.css('top', top + "%").css('z-index', top);
 				_dog.css('background-size', sz + "%");
-				_dog.css('background-position-y', scootch(_dog.css('background-position-y'), sz));
 				_dog.css('height', scootch(_dog.css('height'), sz));
 				_dog.css('width', scootch(_dog.css('width'), sz));
 				_dog.data('size', sz);
@@ -99,7 +94,7 @@
 		function scootch (y, sz) {
 			var size = sz / 100;
 			var newy = parseInt(y.substr(0, y.indexOf("p")));
-			newy = Math.floor(newy * sz);
+			newy = Math.floor(newy * size);
 			return newy + "px";
 		}
 
