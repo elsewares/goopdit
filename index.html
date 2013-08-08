@@ -35,7 +35,7 @@
 	<div id="container">
 		<section id="main">
 		  <img src="/goopd.png" id="goopd" style="z-index: 15; width: 300px;"/>
-		  <input type="text" id="leggers" style="float: right;" width="30" value="10"/>
+		  <input type="text" id="leggers" style="float: right;" width="30" value="20"/>
 		</section><!-- /main -->
 		
 		<footer>
@@ -49,7 +49,7 @@
 	<script type="text/javascript">
 		var i = 1;
 		var doggies = 0;
-		var blug = 10;
+		var blug = 20;
 		var yyyyyy = [-10, -660, -1310, -1960, -2610, -3260];
 		function runnerness () {
 			$('.corndog').each(function (){
@@ -79,9 +79,11 @@
 		function sizers (_dog) {
 				var bgy = yyyyyy[_dog.data('frame')];
 				var size = parseInt(_dog.data('size'));
-				bgy = Math.ceil((bgy * (size / 100)) - Math.floor(size * blug));
+				if(_dog.data("frame") !== 0){
+					bgy = Math.ceil((bgy * (size / 100)) - Math.floor(size * blug));
+				}
 				//newy = Math.ceil(newy * size - Math.floor(size * blug));
-				_dog.css("background-position-y", bgy);
+				_dog.css("background-position-y", bgy + "px");
 				//console.log ("Frame: " + _dog.data("frame") + " .. bgy: " + bgy);
 		}
 		function makeDog () {
