@@ -78,7 +78,8 @@
 		}
 		function sizers (_dog) {
 				var bgy = yyyyyy[_dog.data('frame')];
-				bgy = Math.floor(bgy * (parseInt(_dog.data('size')) / 100));
+				bgy = Math.ceil(bgy * (parseInt(_dog.data('size')) / 100) - Math.floor(size * blug));
+				//newy = Math.ceil(newy * size - Math.floor(size * blug));
 				_dog.css("background-position-y", bgy);
 				//console.log ("Frame: " + _dog.data("frame") + " .. bgy: " + bgy);
 		}
