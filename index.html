@@ -100,7 +100,7 @@
 		function scootch (y, sz) {
 			var size = sz / 100;
 			var newy = parseInt(y.substr(0, y.indexOf("p")));
-			newy = Math.ceil(newy * size + (size * 10));
+			newy = Math.ceil(newy * size + Math.floor(size * 12));
 			return newy + "px";
 		}
 
