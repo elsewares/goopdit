@@ -61,13 +61,15 @@
 			var rcls = "Hot_Dogz" + i; var cls = "Hot_Dogz" + (i + 1);
 			$(".corndog").each(function (){
 				var _t = $(this);
-				_t.removeClass(rcls).addClass(cls);
+				_t.attr('class', function(i, c){
+              		return c.replace(/\bHotDogz\S+/g, '');
+           		}).addClass(cls);
 				_t.data('frame', cls);
 				sizers(_t);
 			});
 
 			i++;
-			if(i > 5){
+			if(i > 6){
 				i = 1;
 			}
 			
