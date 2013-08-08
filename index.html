@@ -80,7 +80,7 @@
 				var bgy = yyyyyy[_dog.data('frame')];
 				var size = (parseInt(_dog.data('size')) / 100);
 				if(_dog.data("frame") !== 0){
-					bgy = Math.ceil((bgy * size) - Math.floor(size * blug));
+					bgy = Math.ceil((bgy * size) + (10 * _dog.data('frame')));
 				}
 				console.log('Frame ' + _dog.data('frame'), 'y-pos ' + bgy);
 
